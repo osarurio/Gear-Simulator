@@ -1,0 +1,102 @@
+﻿<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Gear Simulator</title>
+    <meta
+      name="description"
+      content="A blue gear simulator where you drag gears into place, snap teeth together, and run a motor gear to drive the system."
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header>
+        <div class="title">
+          <h1>Gear Simulator</h1>
+          <p>Drag gears, snap teeth, and press Run.</p>
+        </div>
+        <div class="toolbar">
+          <button id="runBtn" class="primary">Run</button>
+          <button id="langBtn">日本語</button>
+          <button id="clearBtn">Clear</button>
+        </div>
+      </header>
+
+      <main>
+        <aside class="palette">
+          <p class="panel-label">Gear Library</p>
+          <div class="tray" id="tray">
+            <div class="tray-item" draggable="true" data-teeth="24" data-radius="40" data-kind="motor">
+              <canvas width="64" height="64" aria-hidden="true"></canvas>
+              <div>
+                <strong>Motor Gear</strong>
+                <span>24 teeth. Starts the system when Run is active.</span>
+              </div>
+            </div>
+            <div class="tray-item" draggable="true" data-teeth="24" data-radius="42" data-kind="gear">
+              <canvas width="64" height="64" aria-hidden="true"></canvas>
+              <div>
+                <strong>Standard Gear</strong>
+                <span>24 teeth. Plain gear for everyday chaining.</span>
+              </div>
+            </div>
+            <div class="tray-item" draggable="true" data-teeth="24" data-radius="48" data-kind="two-stage">
+              <canvas width="64" height="64" aria-hidden="true"></canvas>
+              <div>
+                <strong>Two-Stage Gear</strong>
+                <span>24 teeth. Use as a compact dual-level transmission.</span>
+              </div>
+            </div>
+            <div class="tray-item" draggable="true" data-teeth="24" data-radius="38" data-kind="ratchet">
+              <canvas width="64" height="64" aria-hidden="true"></canvas>
+              <div>
+                <strong>Ratchet</strong>
+                <span>24 teeth. One-way feel for beginner play.</span>
+              </div>
+            </div>
+          </div>
+        </aside>
+
+        <section class="workspace">
+          <canvas id="stage"></canvas>
+          <div class="badge" id="statusBadge">Ready</div>
+          <div class="hud">
+            <div class="hud-row"><span>Mode</span><strong id="modeValue">Stopped</strong></div>
+            <div class="hud-row"><span>Selected</span><strong id="selectedValue">None</strong></div>
+            <p class="hint">Drag and drop a gear from the library into the blue workspace. If it gets close enough to another gear, it snaps so the teeth line up. Run turns the motor gear and the connected gears follow.</p>
+          </div>
+          <div class="gear-editor" id="gearEditor" aria-live="polite">
+            <label class="gear-edit-row">
+              <span id="gearTeethLabel">Teeth</span>
+              <input id="teethInput" type="number" min="6" step="1" />
+            </label>
+            <label class="gear-edit-row" id="smallTeethRow" style="display:none;">
+              <span id="smallTeethLabel">Small</span>
+              <input id="smallTeethInput" type="number" min="3" step="1" />
+            </label>
+            <label class="gear-edit-row" id="motorSpeedRow" style="display:none;">
+              <span id="motorSpeedLabel">Seconds / 1 rev</span>
+              <input id="motorSpeedInput" type="number" min="0.1" step="0.1" />
+            </label>
+            <button id="deleteBtn" class="danger" title="Delete selected gear">🗑</button>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
