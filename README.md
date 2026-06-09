@@ -45,5 +45,5 @@
 ---
 
 ## 👤 製作者・バージョン情報
-- **Version:** `ver.1.0.0`
+- **Version:** `ver.1.0.0_Beta`
 - **Developer:** `osarurio`
